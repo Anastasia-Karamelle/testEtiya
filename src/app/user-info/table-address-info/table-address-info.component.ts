@@ -14,7 +14,7 @@ export class TableAddressInfoComponent implements OnInit {
 
 	constructor(private deleteService: DeleteService){} 
 	ngOnInit() { }
-	deleteAddress(user: User, idAddress){
-		this.result = this.deleteService.deleteAddress(user, idAddress);  
+	deleteAddress(user: User, idAddress) {
+		this.result = [ this.deleteService.deleteAddress(user, idAddress) ];
 	}
 }

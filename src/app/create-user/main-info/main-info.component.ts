@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl, Validators} from '@angular/forms'; 
-import { mainInfo } from './../entities/userInterface';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { MainInfo } from '../../entities/userInterface';
 
 @Component({
   selector: 'app-main-info',
@@ -8,9 +8,9 @@ import { mainInfo } from './../entities/userInterface';
   styleUrls: ['./main-info.component.css']
 })
 export class MainInfoComponent implements OnInit {
-    @Input() page: { num: number };
-	@Input() mainInfo: mainInfo; 
-    singUpForm: FormGroup; 
+	@Input() page: { num: number };
+	@Input() mainInfo: MainInfo;
+	singUpForm: FormGroup;
 
 	constructor() { };
 	ngOnInit() { 	

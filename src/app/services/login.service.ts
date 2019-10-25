@@ -4,19 +4,22 @@ import userInfo from './../entities/userInfo';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService { 
-	constructor() { }
-	loginIn: boolean = false;
-	login(userName, userPass){ 
+export class LoginService {
+  	loginIn = false;
+  
+  	constructor() { }
+ 
+	login(userName, userPass) { 
 		let result = userInfo.find( item => 
-			( item.isAdmin && item.userName === userName && item.userPass === userPass )); 
+			( item.isAdmin && item.userName === userName && item.userPass === userPass ));
 		this.loginIn = true;
 		return result;
 	}
-	logOut(){
+ 
+	logOut() {
 		this.loginIn = false;
 	}
 	checkLogin(){
-		return loginIn;
+		return this.loginIn;
 	}
 }

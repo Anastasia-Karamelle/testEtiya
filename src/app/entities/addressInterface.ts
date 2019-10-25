@@ -1,6 +1,7 @@
 
-export interface Address{
-	street: string;
+export interface Address {
+    idAddress: string;
+    street: string;
     building: string;
     flat: string;
     city: string;

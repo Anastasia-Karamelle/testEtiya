@@ -1,6 +1,8 @@
 import { Address } from './addressInterface';
 
 export interface User{
+	id: string;
+	isAdmin?: boolean;
 	firstName: string;
 	lastName: string;
 	userName: string;
@@ -10,11 +12,13 @@ export interface User{
 	address: Address[];
 }
 
-export interface mainInfo{
+export interface MainInfo{
+	id: string;
+	isAdmin?: boolean;
 	firstName: string;
 	lastName: string;
 	userName: string;
 	phone: string;
 	email: string;
-	password: string; 
+	password: string;
 }

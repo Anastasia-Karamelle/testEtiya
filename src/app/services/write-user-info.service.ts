@@ -10,11 +10,12 @@ export class WriteUserInfoService {
 
 	constructor(private http: HttpClient){ }
 
-	writeUserInfo(userInfo: User){
+	writeUserInfo(userInfo: User) {
+	  // @ts-ignore
 		fullInfoUsers.push(userInfo);
 		console.log(fullInfoUsers);
+	 }
+	getLastId(): string {
+		return '' + fullInfoUsers[fullInfoUsers.length - 1].id;
 	}
-	getLastId(){
-		return fullInfoUsers.length;
-	} 
 }

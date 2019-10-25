@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { FilterService } from './../../services/filter.service';
-import { mainInfo } from './../entities/userInterface'; 
-import { User } from './../entities/userInterface';
+import { MainInfo } from './../../entities/userInterface'; 
+import { User } from './../../entities/userInterface';
 
 @Component({
   selector: 'app-filter-form',
@@ -15,7 +15,7 @@ export class FilterFormComponent implements OnInit {
   findedUsers: User[];
   @Output() onFilter = new EventEmitter<any>();  
   filterForm: FormGroup; 
-  mainInfo: mainInfo; 
+  mainInfo: MainInfo; 
 
 
   constructor(private filterService: FilterService){} 

@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MainInfoComponent } from './main-info/main-info.component';
-import { AddressInfoComponent } from './address-info/address-info.component'
-import { CompletedComponent } from './completed/completed.component'
-import { User } from './../entities/userInterface';
+import { MainInfo, User } from './../entities/userInterface';
 import { Address } from './../entities/addressInterface';
-import { WriteUserInfoService } from './../services/write-user-info.service'; 
+import { WriteUserInfoService } from './../services/write-user-info.service';
 
 @Component({
   selector: 'app-create-user',
@@ -13,13 +10,13 @@ import { WriteUserInfoService } from './../services/write-user-info.service';
   providers: [WriteUserInfoService]
 })
 export class CreateUserComponent implements OnInit {
-	page: { num: number }; 
-	fullUserInfo: User | {} = {};
-	mainInfo: mainInfo | {} = {};
-	adderessInfo: Address | {} = {};
-	bool: boolean = false;
+	page: { num: number };
+	fullUserInfo: User;
+	mainInfo: MainInfo;
+	adderessInfo: Address;
+	bool = false;
 
-	constructor(private writeUserInfoService: WriteUserInfoService){} 
+	constructor(private writeUserInfoService: WriteUserInfoService) {}
 	ngOnInit() {
 		this.page = { num: 0 };  
 	} 
