@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { LoginService } from './../services/login.service'
-import userInfo from './../entities/userInfo';
+
 
 @Component({
   selector: 'app-header',

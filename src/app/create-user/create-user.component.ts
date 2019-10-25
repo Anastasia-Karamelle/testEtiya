@@ -10,12 +10,15 @@ import { WriteUserInfoService } from './../services/write-user-info.service';
   providers: [WriteUserInfoService]
 })
 export class CreateUserComponent implements OnInit {
-	page: { num: number };
-	fullUserInfo: User;
-	mainInfo: MainInfo;
-	adderessInfo: Address;
-	bool = false;
-
+	 page: { num: number };
+	  // @ts-ignore
+	 fullUserInfo: User = {};
+	  // @ts-ignore
+	 mainInfo: MainInfo = {};
+	  // @ts-ignore
+	 adderessInfo: Address = {};
+	 bool = false;
+	 
 	constructor(private writeUserInfoService: WriteUserInfoService) {}
 	ngOnInit() {
 		this.page = { num: 0 };  
