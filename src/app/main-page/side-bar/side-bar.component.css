@@ -1,0 +1,14 @@
+.btn-secondary{
+	border-radius: 0; 
+} 
+.btn-group{
+	width: 100%;
+}
+.message{
+	margin-top: 20px;
+	text-align: center;
+	padding: 10px 20px;
+	border:1px solid #f4a5a5;
+	background-color: #ffd9d9;
+	color:#bf0000;
+}

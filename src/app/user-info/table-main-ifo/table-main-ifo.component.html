@@ -1,0 +1,56 @@
+<div class="col-md-12">
+	<table class="table table-hover table-striped" *ngIf="findedUsers">
+		<thead>
+			<tr>
+				<th>
+					First Name
+				</th>
+				<th>
+					Last Name
+				</th>
+				<th>
+					User Name
+				</th>
+				<th>
+					Email
+				</th>
+				<th>
+					Phone
+				</th>
+				<th>
+					Action
+				</th>
+			</tr>
+		</thead>
+		<tbody> 
+			<tr *ngFor="let u of findedUsers">
+				<td>
+					{{ u.firstName }}
+				</td>
+				<td>
+					{{ u.lastName }}
+				</td>
+				<td>
+					{{ u.userName }}
+				</td>
+				<td>
+					{{ u.email }}
+				</td>
+				<td>
+					{{ u.phone }}
+				</td>
+				<td>
+					<button class="btn btn-primary btn-large" (click)="deleteUser(u, u.id)">Delete</button> 
+				</td>
+			</tr> 
+		</tbody>
+	</table>
+	<div  *ngIf="!findedUsers">
+		<div class="alert alert-dismissable alert-info"> 
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+				×
+			</button>
+			<h4> Warning! </h4> <strong>Filter criteria not found!</strong> 
+		</div>
+	</div>
+</div>

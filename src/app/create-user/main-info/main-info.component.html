@@ -1,0 +1,42 @@
+<form role="form" class="marg-t" [formGroup]="singUpForm" novalidate (ngSubmit)="next()">
+	<div class="form-group">  
+		<label for="firstName">
+			First Name
+		</label>
+		<input type="text" class="form-control" id="firstName" formControlName="firstName" />
+	</div>
+	<div class="form-group">  
+		<label for="lastName">
+			Last Name
+		</label>
+		<input type="text" class="form-control" id="lastName" formControlName="lastName" />
+	</div>
+	<div class="form-group">  
+		<label for="userName">
+			User Name
+		</label>
+		<input type="text" class="form-control" id="userName" formControlName="userName" />
+	</div>
+	<div class="form-group">  
+		<label for="phone">
+			Phone
+		</label>
+		<input type="text" class="form-control" id="phone" formControlName="phone" />
+	</div>
+	<div class="form-group">  
+		<label for="email">
+			Email
+		</label>
+		<input type="email" class="form-control" id="email" formControlName="email" />
+	</div> 
+	<div class="form-group "> 
+		<label for="password">
+			Password
+		</label>
+		<input type="password" class="form-control" id="password" formControlName="password" />
+	</div>    
+	<button type="submit" class="btn btn-primary btn-block" [disabled]="singUpForm.invalid">
+		Next
+	</button>
+</form> 
+ 

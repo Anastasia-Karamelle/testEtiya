@@ -1,0 +1,10 @@
+.dropdown-menu{
+	margin: .5rem 0 0;
+	padding: .5rem;
+}
+.form-inline .form-control{
+	width: 100%;
+}
+.form-inline > input, .form-inline > button{
+	margin-top: 10px!important;
+}
