@@ -15,35 +15,19 @@ export class MainInfoComponent implements OnInit {
 	constructor() { };
 	ngOnInit() { 	
 		this.singUpForm = new FormGroup({ 
-		    "firstName": new FormControl("", [
-	    			Validators.required, 
-	    			Validators.pattern('[a-zA-Z ]*'),
-	                Validators.minLength(2), 
-	                Validators.maxLength(20)
+		    "firstName": new FormControl("", [ 
 		    ]),
-		    "lastName": new FormControl("", [
-	                Validators.required, 
-	                Validators.pattern('[a-zA-Z ]*'),
-	                Validators.minLength(4), 
-	                Validators.maxLength(20) 
+		    "lastName": new FormControl("", [ 
 		    ]),
-		    "userName": new FormControl("", [
-	    			Validators.required, 
-	                Validators.minLength(2), 
-	                Validators.maxLength(15)
+		    "userName": new FormControl("", [ 
 		    ]),
-		    "phone": new FormControl("", [
-		    		Validators.required, 
-		    		Validators.pattern("[0-9]{12}")
+		    "phone": new FormControl("", [ 
 		    ]),
 		    "email": new FormControl("", [
 	    			Validators.required,
 	    			Validators.email
 		    ]),
-		    "password": new FormControl("", [
-	    			Validators.required, 
-	                Validators.minLength(2), 
-	                Validators.maxLength(12)
+		    "password": new FormControl("", [ 
 		    ]), 
 		});
 	}; 
