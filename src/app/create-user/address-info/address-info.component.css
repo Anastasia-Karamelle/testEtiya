@@ -20,3 +20,17 @@
 .marg-t{
 	margin-top: 20px; 
 }
+input.ng-touched.ng-invalid {
+	border-color: #ff9980;
+	box-shadow: 0 0 0 .2rem rgba(255, 74, 0, 0.25);
+}
+input.ng-touched.ng-valid {
+	border-color: #81ff80; 
+	box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+}
+.errorMsg{
+	color: red;
+	font-style: italic;
+	margin-left: 5px;
+	line-height: 1px;
+}

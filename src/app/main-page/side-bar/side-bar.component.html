@@ -1,10 +1,10 @@
 
-  <div class="btn-group btn-group-lg btn-group-vertical" role="group" > 
-    <a class="btn btn-secondary" href="/">Main Page</a>
-    <a class="btn btn-secondary" href="/user/info">User Info</a>
-    <a class="btn btn-secondary" href="/user/create">Create User</a>
+  <div class="btn-group btn-group-lg btn-group-vertical" role="group" *ngIf="onLogin"> 
+    <a class="btn btn-secondary" routerLink="/">Main Page</a>
+    <a class="btn btn-secondary" routerLink="/user/info">User Info</a>
+    <a class="btn btn-secondary" routerLink="/user/create">Create User</a>
   </div> 
-  <div class="message" *ngIf="onLogin">
+  <div class="message" *ngIf="!onLogin">
     <h4>Warning!</h4>
     <p>In order for you to be able to perform certain actions, you must register</p>
   </div>

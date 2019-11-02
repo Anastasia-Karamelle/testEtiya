@@ -1,39 +1,160 @@
 <form role="form" class="marg-t" [formGroup]="singUpForm" novalidate (ngSubmit)="next()">
 	<div class="form-group">  
 		<label for="firstName">
-			First Name
+			First Name 
 		</label>
+		<div class="validation" 
+		*ngIf="singUpForm.get('firstName').invalid && singUpForm.get('firstName').touched">
+			<label class="errorMsg" for="firstName"
+			*ngIf="singUpForm.get('firstName').errors.required">
+				<small> *This input must  not be empty</small> 
+			</label> 
+			<label class="errorMsg" for="firstName"
+			*ngIf="singUpForm.get('firstName').errors.minlength">
+				<small> *Name must  be more {{ singUpForm.get('firstName').errors.minlength.requiredLength }} characters, letters entered {{ singUpForm.get('firstName').errors.minlength.actualLength }}</small> 
+			</label> 
+			<label class="errorMsg" for="firstName"
+			*ngIf="singUpForm.get('firstName').errors.maxlength">
+				<small> *Name must  be less {{ singUpForm.get('firstName').errors.maxlength.requiredLength }} characters, letters entered {{ singUpForm.get('firstName').errors.maxlength.actualLength }}</small> 
+			</label>  
+			<label class="errorMsg" for="firstName"
+			*ngIf="singUpForm.get('firstName').errors.pattern">
+				<small> *Name must  contains russian or english letters</small> 
+			</label>   
+		</div> 
 		<input type="text" class="form-control" id="firstName" formControlName="firstName" />
 	</div>
 	<div class="form-group">  
 		<label for="lastName">
 			Last Name
 		</label>
+		<div class="validation" 
+		*ngIf="singUpForm.get('lastName').invalid && singUpForm.get('lastName').touched">
+			<label class="errorMsg" for="lastName"
+			*ngIf="singUpForm.get('lastName').errors.required">
+				<small> *This input must  not be empty</small>
+			</label>	
+			<label class="errorMsg" for="lastName"
+			*ngIf="singUpForm.get('lastName').errors.minlength">
+				<small> *Last name must  be more {{ singUpForm.get('lastName').errors.minlength.requiredLength }} characters, letters entered {{ singUpForm.get('lastName').errors.minlength.actualLength }}</small>
+			</label>
+			<label class="errorMsg" for="lastName"
+			*ngIf="singUpForm.get('lastName').errors.maxlength">
+				<small> *Last name must  be less {{ singUpForm.get('lastName').errors.maxlength.requiredLength }} characters, letters entered {{ singUpForm.get('lastName').errors.maxlength.actualLength }}</small>
+			</label>  
+			<label class="errorMsg" for="lastName"
+			*ngIf="singUpForm.get('lastName').errors.pattern">
+				<small> *Last name must contains russian or english letters</small> 
+			</label>  
+		</div> 
 		<input type="text" class="form-control" id="lastName" formControlName="lastName" />
 	</div>
 	<div class="form-group">  
 		<label for="userName">
 			User Name
 		</label>
+		<div class="validation" 
+		*ngIf="singUpForm.get('userName').invalid && singUpForm.get('userName').touched">
+			<label class="errorMsg" for="userName"
+			*ngIf="singUpForm.get('userName').errors.required">
+				<small> *This input must  not be empty</small>
+			</label>	
+			<label class="errorMsg" for="userName"
+			*ngIf="singUpForm.get('userName').errors.minlength">
+				<small> *User name must  be more {{ singUpForm.get('userName').errors.minlength.requiredLength }} characters, letters entered {{ singUpForm.get('userName').errors.minlength.actualLength }}</small>
+			</label>
+			<label class="errorMsg" for="userName"
+			*ngIf="singUpForm.get('userName').errors.maxlength">
+				<small> *User name must  be less {{ singUpForm.get('userName').errors.maxlength.requiredLength }} characters, letters entered {{ singUpForm.get('userName').errors.maxlength.actualLength }}</small>
+			</label> 
+			<label class="errorMsg" for="userName"
+			*ngIf="singUpForm.get('userName').errors.pattern">
+				<small> *User name contains invalid characters</small> 
+			</label>  
+		</div> 
 		<input type="text" class="form-control" id="userName" formControlName="userName" />
 	</div>
 	<div class="form-group">  
 		<label for="phone">
 			Phone
-		</label>
+		</label>  
+		<div class="validation" 
+		*ngIf="singUpForm.get('phone').invalid && singUpForm.get('phone').touched">
+			<label class="errorMsg" 
+			*ngIf="singUpForm.get('phone').errors.required">
+				<small> *This input must  not be empty</small>
+			</label>	 
+			<label class="errorMsg" 
+			*ngIf="singUpForm.get('phone').errors.pattern">
+				<small> *Phone must  contains 12 digits</small> 
+			</label>  
+		</div> 
 		<input type="text" class="form-control" id="phone" formControlName="phone" />
 	</div>
 	<div class="form-group">  
 		<label for="email">
 			Email
 		</label>
+		<div class="validation" 
+		*ngIf="singUpForm.get('email').invalid && singUpForm.get('email').touched">
+			<label class="errorMsg" for="email"
+			*ngIf="singUpForm.get('email').errors.required">
+				<small> *This input must  not be empty</small>
+			</label>	
+			<label class="errorMsg" for="email"
+			*ngIf="singUpForm.get('email').errors.email">
+				<small> *You must  be enter right email </small>
+			</label> 
+		</div> 
 		<input type="email" class="form-control" id="email" formControlName="email" />
 	</div> 
-	<div class="form-group "> 
-		<label for="password">
-			Password
-		</label>
-		<input type="password" class="form-control" id="password" formControlName="password" />
+	<div class="form-group row"> 
+		<div class="col-md-6">
+			<label for="password">
+				Password
+			</label>
+			<div class="validation" 
+			*ngIf="singUpForm.get('password').invalid && singUpForm.get('password').touched">
+				<label class="errorMsg" for="password"
+				*ngIf="singUpForm.get('password').errors.required">
+					<small> *This input must  not be empty</small>
+				</label>	
+				<label class="errorMsg" for="password"
+				*ngIf="singUpForm.get('password').errors.minlength">
+					<small> *Password must  be more {{ singUpForm.get('password').errors.minlength.requiredLength }} characters, letters entered {{ singUpForm.get('password').errors.minlength.actualLength }}</small>
+				</label>
+				<label class="errorMsg" for="password"
+				*ngIf="singUpForm.get('password').errors.maxlength">
+					<small> *Password must  be less {{ singUpForm.get('password').errors.maxlength.requiredLength }} characters, letters entered {{ singUpForm.get('password').errors.maxlength.actualLength }}</small>
+				</label> 
+			</div> 
+			<input type="password" class="form-control" id="password" formControlName="password" />
+		</div> 
+		<div class="col-md-6">
+			<label for="password2">
+				Password
+			</label> 
+			<div class="validation" 
+			*ngIf="singUpForm.get('password2').invalid && singUpForm.get('password2').touched">
+				<label class="errorMsg" for="password2"
+				*ngIf="singUpForm.get('password2').errors.required">
+					<small> *This input must  not be empty</small>
+				</label>	
+				<label class="errorMsg" for="password2"
+				*ngIf="singUpForm.get('password2').errors.minlength">
+					<small> *Password must  be more {{ singUpForm.get('password2').errors.minlength.requiredLength }} characters, letters entered {{ singUpForm.get('password2').errors.minlength.actualLength }}</small>
+				</label>
+				<label class="errorMsg" for="password2"
+				*ngIf="singUpForm.get('password2').errors.maxlength"> 
+					<small> *Password must  be less {{ singUpForm.get('password2').errors.maxlength.requiredLength }} characters, letters entered {{ singUpForm.get('password2').errors.maxlength.actualLength }}</small>
+				</label> 
+				<label class="errorMsg" for="password2"
+				*ngIf="singUpForm.get('password2').errors.mustMatch">
+					<small> *Password did not match </small>
+				</label>
+			</div> 
+			<input type="password" class="form-control" id="password2" formControlName="password2" />
+		</div> 
 	</div>    
 	<button type="submit" class="btn btn-primary btn-block" [disabled]="singUpForm.invalid">
 		Next

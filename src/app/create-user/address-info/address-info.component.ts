@@ -23,31 +23,36 @@ export class AddressInfoComponent implements OnInit {
     ngOnInit(){
 		this.singUpForm2 = new FormGroup({ 
 		    "type": new FormControl("", [
-	    			Validators.required
+	    			Validators.requiredTrue
 		    ]),
 		    "country": new FormControl("", [
-	    			Validators.required
+	    			Validators.requiredTrue
 		    ]),
 		    "street": new FormControl("", [
-	    			Validators.required
+	    			Validators.required,
+                	Validators.minLength(2), 
+                	Validators.maxLength(12),
+                	Validators.pattern("^[а-яА-ЯёЁa-zA-Z]+$")
 		    ]),
 		    "building": new FormControl("", [
 		    		Validators.required, 
-		    		Validators.pattern("[0-9]*")
+		    		Validators.pattern("^[0-9]{1,3}")
 			]),
 		    "flat": new FormControl("", [
 		    		Validators.required, 
-		    		Validators.pattern("[0-9]*")
+		    		Validators.pattern("^[0-9]{1,3}")
 			]),
 		    "city": new FormControl("", [
-	                Validators.required,  
+	                Validators.required,
+                	Validators.minLength(2), 
+                	Validators.maxLength(12),
+                	Validators.pattern("^[а-яА-ЯёЁa-zA-Z]+$")
 		    ]),
 		    "code": new FormControl("", [
 		    		Validators.required, 
-		    		Validators.pattern("[0-9]*") 
+		    		Validators.pattern("^[0-9]{4}")
 			])
-		});
-
+		}); 
         this.countryService.getAllCountry().subscribe((data:Country) => {
         	this.country = data; 
         }); 
@@ -57,6 +62,9 @@ export class AddressInfoComponent implements OnInit {
     }
     onTypeAddressChoose(type: string){
     	this.chooseType = type;
+    }
+    prevPage(){
+    	this.page.num = 0; 
     }
     submit(){
     	if(this.singUpForm2.invalid)return; 

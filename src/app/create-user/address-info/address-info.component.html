@@ -17,6 +17,25 @@
 		<label for="street">
 			Street
 		</label>
+		<div class="validation" 
+		*ngIf="singUpForm2.get('street').invalid && singUpForm2.get('street').touched">
+			<label class="errorMsg" for="street"
+			*ngIf="singUpForm2.get('street').errors.required">
+				<small> *This input must  not be empty</small> 
+			</label> 
+			<label class="errorMsg" for="street"
+			*ngIf="singUpForm2.get('street').errors.pattern">
+				<small> *Street must contains russian or english letters</small> 
+			</label>  
+			<label class="errorMsg" for="street"
+			*ngIf="singUpForm2.get('street').errors.minlength">
+				<small> *Street must  be more {{ singUpForm2.get('street').errors.minlength.requiredLength }} characters, letters entered {{ singUpForm2.get('street').errors.minlength.actualLength }}</small>
+			</label>
+			<label class="errorMsg" for="street"
+			*ngIf="singUpForm2.get('street').errors.maxlength">
+				<small> *Street must  be less {{ singUpForm2.get('street').errors.maxlength.requiredLength }} characters, letters entered {{ singUpForm2.get('street').errors.maxlength.actualLength }}</small>
+			</label> 
+		</div> 
 		<input type="text" class="form-control" id="street" formControlName="street" />
 	</div>
 	<div class="row marg-l-n">
@@ -24,18 +43,51 @@
 			<label for="building">
 				Building
 			</label>
+			<div class="validation" 
+			*ngIf="singUpForm2.get('building').invalid && singUpForm2.get('building').touched">
+				<label class="errorMsg" for="building"
+				*ngIf="singUpForm2.get('building').errors.required">
+					<small> *This input must  not be empty</small> 
+				</label> 
+				<label class="errorMsg" for="building"
+				*ngIf="singUpForm2.get('building').errors.pattern">
+					<small> *Building must contains 1 - 3 digits</small> 
+				</label>  
+			</div> 
 			<input type="text" class="form-control" id="building" formControlName="building" />
 		</div>
 		<div class="form-group marg-l"> 
 			<label for="flat">
 				Flat
 			</label>
+			<div class="validation" 
+			*ngIf="singUpForm2.get('flat').invalid && singUpForm2.get('flat').touched">
+				<label class="errorMsg" for="flat"
+				*ngIf="singUpForm2.get('flat').errors.required">
+					<small> *This input must  not be empty</small> 
+				</label> 
+				<label class="errorMsg" for="flat"
+				*ngIf="singUpForm2.get('flat').errors.pattern">
+					<small> *Flat must contains 1 - 3 digits</small> 
+				</label>  
+			</div> 
 			<input type="text" class="form-control" id="flat" formControlName="flat" />
 		</div>	
 		<div class="form-group marg-l"> 
 			<label for="code">
 				Post code
 			</label>
+			<div class="validation" 
+			*ngIf="singUpForm2.get('code').invalid && singUpForm2.get('code').touched">
+				<label class="errorMsg" for="code"
+				*ngIf="singUpForm2.get('code').errors.required">
+					<small> *This input must  not be empty</small> 
+				</label> 
+				<label class="errorMsg" for="code"
+				*ngIf="singUpForm2.get('code').errors.pattern">
+					<small> *Post code must contains 4 digits</small> 
+				</label>  
+			</div> 
 			<input type="text" class="form-control" id="code" formControlName="code" />
 		</div> 
 	</div> 
@@ -43,8 +95,30 @@
 		<label for="city">
 			City
 		</label>
+			<div class="validation" 
+			*ngIf="singUpForm2.get('city').invalid && singUpForm2.get('city').touched">
+				<label class="errorMsg" for="city"
+				*ngIf="singUpForm2.get('city').errors.required">
+					<small> *This input must  not be empty</small> 
+				</label> 
+				<label class="errorMsg" for="city"
+				*ngIf="singUpForm2.get('city').errors.pattern">
+					<small> *City must contains russian or english letters</small> 
+				</label>  
+				<label class="errorMsg" for="city"
+				*ngIf="singUpForm2.get('city').errors.minlength">
+					<small> *City must  be more {{ singUpForm2.get('city').errors.minlength.requiredLength }} characters, letters entered {{ singUpForm2.get('city').errors.minlength.actualLength }}</small>
+				</label>
+				<label class="errorMsg" for="city"
+				*ngIf="singUpForm2.get('city').errors.maxlength">
+					<small> *City must  be less {{ singUpForm2.get('city').errors.maxlength.requiredLength }} characters, letters entered {{ singUpForm2.get('city').errors.maxlength.actualLength }}</small>
+				</label> 
+			</div> 
 		<input type="text" class="form-control" id="city" formControlName="city" />
 	</div>  
+	<button type="button" class="btn btn-block btn-primary" (click)="prevPage()">
+		Next
+	</button> 
 	<button type="submit" class="btn btn-block btn-primary"  [disabled]="singUpForm2.invalid">
 		Submit
 	</button> 

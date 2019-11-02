@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { LoginService } from './../../services/login.service'; 
 
 @Component({
   selector: 'app-side-bar',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
-	constructor() { } 
-	ngOnInit() { } 
+	onLogin:boolean;
+	constructor(private loginService: LoginService){} 
+	ngOnInit() { 
+		this.onLogin = this.loginService.checkLogin();
+	} 
 }

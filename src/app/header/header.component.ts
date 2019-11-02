@@ -17,8 +17,7 @@ export class HeaderComponent implements OnInit {
     loginForm: FormGroup; 
 	constructor(private loginService: LoginService){} 
 	ngOnInit() {
-        this.loginForm = new FormGroup({
-                 
+        this.loginForm = new FormGroup({ 
             "userName": new FormControl("", [
                 Validators.required, 
                 Validators.minLength(2), 
@@ -28,23 +27,25 @@ export class HeaderComponent implements OnInit {
                 Validators.required, 
                 Validators.minLength(4), 
                 Validators.maxLength(15) 
-            ]),
-        
+            ]), 
         });
     }
-
-
+ 
 	login(){
         const user = this.loginService.login(this.loginForm.value.userName, this.loginForm.value.userPass); 
         if(!user){
         	this.showAlert = true;
         	this.loginIn = false;
-        	return;
+            this.loginForm.reset(); 
+        	return; 
         }  
+        this.showAlert = false;
         this.loginIn = true;
         this.userName = this.loginForm.value.userName;
+        localStorage.setItem('loginUser', JSON.stringify(user)); 
         this.loginForm.reset(); 
     }
+
     logOut(){
         this.loginService.logOut();
     	this.userName = ""; 
