@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { User } from '../entities/userInterface';
-import userInfo from '../entities/userInfo';
-import {Address} from '../entities/addressInterface';
 
 @Injectable({
   providedIn: 'root'

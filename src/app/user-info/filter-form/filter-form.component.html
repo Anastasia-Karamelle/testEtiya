@@ -1,52 +1,52 @@
- 
 
-<form role="form" id="filtre"  [formGroup]="filterForm" (ngSubmit)="filter()">
-	<div class="row">		
-		<div class="col-md-6"> 
-			<div class="form-group"> 
+
+<form role="form" id="filtre"  [formGroup]="filterForm" (ngSubmit)="useFilter()">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
 				<label for="firstName">
 					First Name
 				</label>
 				<input type="text" class="form-control" id="firstName" formControlName="firstName"/>
-			</div>  
+			</div>
 		</div>
-		<div class="col-md-6"> 
-			<div class="form-group"> 
+		<div class="col-md-6">
+			<div class="form-group">
 				<label for="lastName">
 					Last Name
 				</label>
 				<input type="text" class="form-control" id="lastName" formControlName="lastName"/>
-			</div>  
-		</div> 
+			</div>
+		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-4">
-			<div class="form-group"> 
+			<div class="form-group">
 				<label for="userName">
 					User Name
 				</label>
 				<input type="text" class="form-control" id="userName" formControlName="userName"/>
-			</div>  
+			</div>
 		</div>
 		<div class="col-md-4">
-			<div class="form-group"> 
+			<div class="form-group">
 				<label for="email">
 					Email
 				</label>
 				<input type="text" class="form-control" id="email" formControlName="email"/>
-			</div>  
+			</div>
 		</div>
 		<div class="col-md-4">
-			<div class="form-group"> 
+			<div class="form-group">
 				<label for="phone">
 					Phone
 				</label>
 				<input type="text" class="form-control" id="phone" formControlName="phone"/>
-			</div>  
+			</div>
 		</div>
-	</div> 
-	<button type="submit" class="btn btn-primary btn-lg" id="find"> Find </button> 
-	<button type="button" class="btn btn-outline-secondary btn-lg" (click) = "clearForm()"> Clear </button> 	
-</form> 
+	</div>
+	<button type="submit" class="btn btn-primary btn-lg" id="find"> Find </button>
+	<button type="button" class="btn btn-outline-secondary btn-lg" (click) = "clearForm()"> Clear </button>
+</form>
 
 

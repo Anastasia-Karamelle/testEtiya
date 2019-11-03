@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { DeleteService } from '../../services/delete.service';
 import { User } from '../../entities/userInterface';
-import {Address} from '../../entities/addressInterface';
 
 @Component({
   selector: 'app-table-address-info',

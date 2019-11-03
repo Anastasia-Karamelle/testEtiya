@@ -13,7 +13,7 @@ import { User } from '../../entities/userInterface';
 
 export class FilterFormComponent implements OnInit {
   findedUsers: User[];
-  @Output() onFilter = new EventEmitter<any>();
+  @Output() filters = new EventEmitter<any>();
   filterForm: FormGroup;
   mainInfo: MainInfo;
 
@@ -45,9 +45,9 @@ export class FilterFormComponent implements OnInit {
       ]),
    });
   }
-  filter() {
+  useFilter() {
     this.findedUsers = this.filterService.filter(this.filterForm.value);
-    this.onFilter.emit(this.findedUsers);
+    this.filters.emit(this.findedUsers);
   }
   clearForm() {
     this.filterForm.reset();

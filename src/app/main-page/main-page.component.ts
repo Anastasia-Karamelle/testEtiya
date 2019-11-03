@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { ContentComponent } from './content/content.component';
 
@@ -7,7 +7,6 @@ import { ContentComponent } from './content/content.component';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
-export class MainPageComponent implements OnInit {  
-	constructor() { } 
-	ngOnInit() { } 
+export class MainPageComponent {
+
 }

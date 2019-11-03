@@ -23,7 +23,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let u of findedUsers" (click)="chooseUser(u)">
+			<tr *ngFor="let u of findedUsers" (click)="onChooseUser(u.id)">
 				<td>
 					{{ u.firstName }}
 				</td>

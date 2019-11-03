@@ -31,7 +31,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
             Validators.maxLength(15)
         ]),
     });
-
+    const user = JSON.parse(localStorage.getItem('loginUser'));
+    if (user) {
+      this.showAlert = false;
+      this.loginIn = true;
+      this.userName = user.userName;
+      this.loginForm.reset();
+    }
     this.loginSubscription = this.userLoginService.isLogin.subscribe((result: User) => {
       if (result === null) { return; }
       if (result === undefined) {
