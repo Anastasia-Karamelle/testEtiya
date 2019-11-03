@@ -1,6 +1,112 @@
 
-<div class="alert alert-dismissable alert-success"> 
-	<h4> Success! </h4> 
+<h2 class="alert">
+  Do you want save this data?
+</h2>
+<div>
+  <table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+      <th>
+        User Type
+      </th>
+      <th>
+        First Name
+      </th>
+      <th>
+        Last Name
+      </th>
+      <th>
+        User Name
+      </th>
+      <th>
+        Phone
+      </th>
+      <th>
+        Email
+      </th>
+      <th>
+        Address type
+      </th>
+      <th>
+        Country
+      </th>
+      <th>
+        City
+      </th>
+      <th>
+        Street
+      </th>
+      <th>
+        Building
+      </th>
+      <th>
+        Flat
+      </th>
+      <th>
+        Post Code
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        {{ mainInfo.isAdmin }}
+      </td>
+      <td>
+        {{ mainInfo.firstName }}
+      </td>
+      <td>
+        {{ mainInfo.lastName }}
+      </td>
+      <td>
+        {{ mainInfo.userName }}
+      </td>
+      <td>
+        {{ mainInfo.phone }}
+      </td>
+      <td>
+        {{ mainInfo.email }}
+      </td>
+      <td>
+        {{ addressInfo.addressType }}
+      </td>
+      <td>
+        {{ addressInfo.country }}
+      </td>
+      <td>
+        {{ addressInfo.city }}
+      </td>
+      <td>
+        {{ addressInfo.street }}
+      </td>
+      <td>
+        {{ addressInfo.building }}
+      </td>
+      <td>
+        {{ addressInfo.flat }}
+      </td>
+      <td>
+        {{ addressInfo.postCode }}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="row" *ngIf="!showAlert">
+  <div class="col-md-6">
+    <button class="btn btn-success btn-block" (click)="save()">Save</button>
+  </div>
+  <div class="col-md-6">
+    <button class="btn btn-danger btn-block" (click)="cancel()">Cancel</button>
+  </div>
+</div>
+
+
+
+
+<div class="alert alert-dismissable alert-success" *ngIf="showAlert">
+	<h4> Success! </h4>
 	<strong>You have successfully registered</strong>  <br>
-	<a href="/" class="alert-link">You can go to the main page</a>
+	<a routerLink="/" class="alert-link">You can go to the main page</a>
 </div>

@@ -1,44 +1,41 @@
 import { Injectable } from '@angular/core';
-import { User } from './../entities/userInterface';
-import userInfo from './../entities/userInfo';
+import { User } from '../entities/userInterface';
+import userInfo from '../entities/userInfo';
+import {Address} from '../entities/addressInterface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
- 
-	constructor() {}
+  constructor() {}
 
-	filter(criteria: User): User[] {
-	   // @ts-ignore
-	    let result = userInfo as User[];
-	    
-	    if(criteria.firstName){
-	   result = result.filter((value: User) => {
-	         return value.firstName === criteria.firstName;
-	      });
-	  }
-	  if(criteria.lastName){
-	   result = result.filter((value: User) => {
-	         return value.lastName === criteria.lastName;
-	      });
-	  }
-	  if(criteria.userName){
-	   result = result.filter((value: User) => {
-	         return value.userName === criteria.userName;
-	      });
-	  }
-	  if(criteria.phone){
-	   result = result.filter((value: User) => {
-	         return value.phone === criteria.phone;
-	      });
-	  }
-	  if(criteria.email){
-	   result = result.filter((value: User) => {
-	         return value.email === criteria.email;
-	      });
-	  }
-	  
-	  return result as User[] ;
-	}
+  filter(criteria: User): User[] {
+      let result = JSON.parse(localStorage.getItem('fullInfoUsers'));
+      if (criteria.firstName) {
+        result = result.filter((value: User) => {
+           return value.firstName.toLowerCase().indexOf(criteria.firstName.toLowerCase()) > -1;
+        });
+      }
+      if (criteria.lastName) {
+     result = result.filter((value: User) => {
+           return value.lastName.toLowerCase().indexOf(criteria.lastName.toLowerCase()) > -1;
+        });
+    }
+      if (criteria.userName) {
+     result = result.filter((value: User) => {
+           return value.userName.toLowerCase().indexOf(criteria.userName) > -1;
+        });
+    }
+      if (criteria.phone) {
+     result = result.filter((value: User) => {
+           return value.phone.toLowerCase().indexOf(criteria.phone) > -1;
+        });
+    }
+      if (criteria.email) {
+     result = result.filter((value: User) => {
+           return value.email.toLowerCase().indexOf(criteria.email) > -1;
+        });
+    }
+      return result as User[] ;
+  }
 }

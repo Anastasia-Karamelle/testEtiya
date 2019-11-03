@@ -1,6 +1,8 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { DeleteService } from './../../services/delete.service';
-import { User } from './../../entities/userInterface';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { DeleteService } from '../../services/delete.service';
+import { FilterService } from '../../services/filter.service';
+import { User } from '../../entities/userInterface';
+import {Address} from '../../entities/addressInterface';
 
 @Component({
   selector: 'app-table-main-ifo',
@@ -9,12 +11,17 @@ import { User } from './../../entities/userInterface';
   providers: [DeleteService]
 })
 export class TableMainIfoComponent implements OnInit {
-	@Input() findedUsers: User[];
-	result: User[];
+ @Input() findedUsers: User[];
+ @Output() onChooseUser = new EventEmitter<User>();
 
-	constructor(private deleteService: DeleteService){} 
-	ngOnInit() { }
-  	deleteUser(user: User, idUser){
-		this.result = this.deleteService.deleteUser(this.findedUsers, idUser);  
-	}
+  constructor(private deleteService: DeleteService) {}
+
+  ngOnInit() {}
+
+  chooseUser(user: User) {
+    this.onChooseUser.emit(user);
+  }
+  deleteUser(idUser: number) {
+    this.findedUsers = this.deleteService.deleteUser(idUser);
+  }
 }

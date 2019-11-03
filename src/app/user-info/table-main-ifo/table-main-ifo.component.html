@@ -1,5 +1,5 @@
 <div class="col-md-12">
-	<table class="table table-hover table-striped" *ngIf="findedUsers">
+	<table class="table table-hover table-striped" *ngIf="findedUsers || (findedUsers && findedUsers.length !== 0)">
 		<thead>
 			<tr>
 				<th>
@@ -22,8 +22,8 @@
 				</th>
 			</tr>
 		</thead>
-		<tbody> 
-			<tr *ngFor="let u of findedUsers">
+		<tbody>
+			<tr *ngFor="let u of findedUsers" (click)="chooseUser(u)">
 				<td>
 					{{ u.firstName }}
 				</td>
@@ -40,17 +40,17 @@
 					{{ u.phone }}
 				</td>
 				<td>
-					<button class="btn btn-primary btn-large" (click)="deleteUser(u, u.id)">Delete</button> 
+					<button class="btn btn-primary btn-large" (click)="deleteUser(u.id)">Delete</button>
 				</td>
-			</tr> 
+			</tr>
 		</tbody>
 	</table>
-	<div  *ngIf="!findedUsers">
-		<div class="alert alert-dismissable alert-info"> 
+	<div *ngIf="!findedUsers || (findedUsers && findedUsers.length === 0)">
+		<div class="alert alert-dismissable alert-info">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
 				×
 			</button>
-			<h4> Warning! </h4> <strong>Filter criteria not found!</strong> 
+			<h4> Warning! </h4> <strong>Filter criteria not found!</strong>
 		</div>
 	</div>
 </div>

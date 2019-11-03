@@ -1,5 +1,5 @@
 <div class="col-md-12">
-	<table class="table table-hover table-striped" *ngIf="findedUsers">
+	<table class="table table-hover table-striped" *ngIf="addresses">
 		<thead >
 			<tr>
 				<th>
@@ -24,15 +24,12 @@
 					Flat
 				</th>
 				<th>
-					User
-				</th>
-				<th>
 					Action
 				</th>
 			</tr>
 		</thead>
-		<tbody *ngFor="let u of findedUsers">
-			<tr  *ngFor="let a of u.address" >
+		<tbody>
+			<tr  *ngFor="let a of addresses.address" >
 				<td>
 					{{ a.addressType }}
 				</td>
@@ -55,20 +52,17 @@
 					{{ a.flat }}
 				</td>
 				<td>
-					{{ u.firstName }} {{ u.lastName }}
+					<button class="btn btn-primary btn-large" (click)="deleteAddress(addresses, a.idAddress)">Delete</button>
 				</td>
-				<td>
-					<button class="btn btn-primary btn-large" (click)="deleteAddress(u, a.idAddress)">Delete</button> 
-				</td>
-			</tr> 
+			</tr>
 		</tbody>
 	</table>
-	<div *ngIf="!findedUsers">
-		<div class="alert alert-dismissable alert-info"> 
+	<div *ngIf="!addresses">
+		<div class="alert alert-dismissable alert-info">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
 				×
 			</button>
-			<h4> Warning! </h4> <strong>Filter criteria not found!</strong> 
+			<h4> Warning! </h4> <strong>Filter criteria not found!</strong>
 		</div>
 	</div>
 </div>

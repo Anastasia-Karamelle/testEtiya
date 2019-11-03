@@ -1,11 +1,10 @@
 <div class="row margin-b">
 	<div class="col-md-2">
-		<a href="/">  << Back to Main Page</a>		
-		<h2 *ngIf="!page.num">Main Info</h2> 
-		<h2 *ngIf="page.num">Address Info</h2> 
+		<a routerLink="/">  << Back to Main Page</a>
+		<h2 *ngIf="!page.num">Main Info</h2>
+		<h2 *ngIf="page.num">Address Info</h2>
 	</div>
-	<app-main-info class="col-md-8" *ngIf="page.num === 0" [(page)]="page" [(mainInfo)] = "mainInfo"></app-main-info>
-	<app-address-info class="col-md-8" *ngIf="page.num === 1" [(page)]="page" [(adderessInfo)] = "adderessInfo" (writeInfo)="writeInfo($event)"></app-address-info>
-	<app-completed class="col-md-8" *ngIf="page.num === 2"></app-completed> 
+	<app-main-info class="col-md-8" *ngIf="page.num === 0" [(page)]="page"></app-main-info>
+	<app-address-info class="col-md-8" *ngIf="page.num === 1" [(page)]="page"></app-address-info>
+	<app-completed class="col-md-8" *ngIf="page.num === 2"></app-completed>
 </div>
- 

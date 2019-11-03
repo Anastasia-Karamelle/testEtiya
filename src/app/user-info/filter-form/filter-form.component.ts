@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
-import { FilterService } from './../../services/filter.service';
-import { MainInfo } from './../../entities/userInterface'; 
-import { User } from './../../entities/userInterface';
+import { FilterService } from '../../services/filter.service';
+import { MainInfo } from '../../entities/userInterface';
+import { User } from '../../entities/userInterface';
 
 @Component({
   selector: 'app-filter-form',
@@ -13,45 +13,44 @@ import { User } from './../../entities/userInterface';
 
 export class FilterFormComponent implements OnInit {
   findedUsers: User[];
-  @Output() onFilter = new EventEmitter<any>();  
-  filterForm: FormGroup; 
-  mainInfo: MainInfo; 
+  @Output() onFilter = new EventEmitter<any>();
+  filterForm: FormGroup;
+  mainInfo: MainInfo;
 
 
-  constructor(private filterService: FilterService){} 
+  constructor(private filterService: FilterService) {}
   ngOnInit() {
-    this.filterForm = new FormGroup({ 		    
-		  "firstName": new FormControl("", [ 
-    			Validators.pattern('[a-zA-Z ]*'),
-          Validators.minLength(2), 
-          Validators.maxLength(20)
-	    ]),
-      "lastName": new FormControl("", [ 
+    this.filterForm = new FormGroup({
+      firstName: new FormControl('', [
           Validators.pattern('[a-zA-Z ]*'),
-          Validators.minLength(2), 
-          Validators.maxLength(20) 
+          Validators.minLength(2),
+          Validators.maxLength(20)
       ]),
-      "userName": new FormControl("", [ 
-          Validators.minLength(2), 
+      lastName: new FormControl('', [
+          Validators.pattern('[a-zA-Z ]*'),
+          Validators.minLength(2),
+          Validators.maxLength(20)
+      ]),
+      userName: new FormControl('', [
+          Validators.minLength(2),
           Validators.maxLength(15)
       ]),
-      "phone": new FormControl("", [ 
-      		Validators.pattern("[0-9]{12}")
+      phone: new FormControl('', [
+          Validators.pattern('[0-9]{12}')
       ]),
-      "email": new FormControl("", [ 
-    			Validators.email,
-          Validators.minLength(8), 
+      email: new FormControl('', [
+          Validators.email,
+          Validators.minLength(8),
           Validators.maxLength(25)
-      ]), 
-	 });
+      ]),
+   });
   }
-  filter(){
-    this.findedUsers = this.filterService.filter(this.filterForm.value); 
-    this.onFilter.emit(this.findedUsers); 
-    console.log('findedUsers', this.findedUsers);
+  filter() {
+    this.findedUsers = this.filterService.filter(this.filterForm.value);
+    this.onFilter.emit(this.findedUsers);
   }
-  clearForm(){
-  	this.filterForm.reset(); 
+  clearForm() {
+    this.filterForm.reset();
   }
 
 }

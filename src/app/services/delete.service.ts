@@ -1,31 +1,36 @@
-import { Injectable } from '@angular/core'; 
-import { User } from './../entities/userInterface';
+import { Injectable } from '@angular/core';
+import { User } from '../entities/userInterface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeleteService {
 
-	constructor() { }
+  constructor() { }
 
-	deleteAddress(user: User, id): User {
-		for (let key in user) {
-			for (let i = 0; i < user.address.length; i++){
-				if (user.address[i].idAddress === id) {
-				 user.address.splice(i, 1);
-				}
-			}
-		}
+  deleteAddress(user: User, id): User {
+    const fullInfoUsers = JSON.parse(localStorage.getItem('fullInfoUsers'));
+    const targetUser = fullInfoUsers.findIndex((el) => {
+      return el.id === user.id;
+    });
+    const addressIndex = fullInfoUsers[targetUser].address.findIndex((el) => {
+      return el.idAddress === id;
+    });
+    fullInfoUsers[targetUser].address.splice(addressIndex, 1);
+    localStorage.setItem('fullInfoUsers', JSON.stringify(fullInfoUsers));
 
-	  return user;
-	 }
-	deleteUser(users: User[], id): User[] {
-		console.log(users);
-		for (let i = 0; i < users.length; i++) {
-			if (users[i].id === id) {
-				users = users.splice(i, 1);
-			}
-		} 
-		return users;
- 	}
+    return fullInfoUsers[targetUser];
+   }
+
+  deleteUser(id: number): User[] {
+
+    const fullInfoUsers = JSON.parse(localStorage.getItem('fullInfoUsers'));
+    const targetUser = fullInfoUsers.findIndex((el) => {
+      return el.id === id;
+    });
+    fullInfoUsers.splice(targetUser, 1);
+    localStorage.setItem('fullInfoUsers', JSON.stringify(fullInfoUsers));
+
+    return fullInfoUsers;
+  }
 }

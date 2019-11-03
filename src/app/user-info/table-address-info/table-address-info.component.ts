@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { DeleteService } from './../../services/delete.service';
-import { User } from './../../entities/userInterface';
+import { DeleteService } from '../../services/delete.service';
+import { User } from '../../entities/userInterface';
+import {Address} from '../../entities/addressInterface';
 
 @Component({
   selector: 'app-table-address-info',
@@ -9,12 +10,12 @@ import { User } from './../../entities/userInterface';
   providers: [DeleteService]
 })
 export class TableAddressInfoComponent implements OnInit {
-	@Input() findedUsers: User[];//undefined
-	result: User[];
 
-	constructor(private deleteService: DeleteService){} 
-	ngOnInit() { }
-	deleteAddress(user: User, idAddress) {
-		this.result = [ this.deleteService.deleteAddress(user, idAddress) ];
-	}
+  @Input() addresses: User;
+  constructor(private deleteService: DeleteService) {}
+  ngOnInit() {
+  }
+  deleteAddress(user: User, idAddress) {
+    this.addresses = this.deleteService.deleteAddress(user, idAddress);
+  }
 }

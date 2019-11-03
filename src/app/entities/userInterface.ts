@@ -1,7 +1,7 @@
 import { Address } from './addressInterface';
 
 export interface User{
-	id: string;
+	id: number;
 	isAdmin?: boolean;
 	firstName: string;
 	lastName: string;

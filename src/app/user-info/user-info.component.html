@@ -1,13 +1,12 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<a routerLink="/">  << Back to Main Page</a>		
+		<a routerLink="/">  << Back to Main Page</a>
 		<h2> Filter:</h2>
 		<app-filter-form (onFilter)="onFilter($event)"></app-filter-form> <br>
 		<h2> Main Info:</h2>
-		<app-table-main-ifo [(findedUsers)]="findedUsers"></app-table-main-ifo>  <br>
+		<app-table-main-ifo [(findedUsers)]="findedUsers" (onChooseUser)="onChooseUser($event)"></app-table-main-ifo>  <br>
 		<h2> Address Info: </h2>
-		<app-table-address-info  [(findedUsers)]="findedUsers"></app-table-address-info>
+		<app-table-address-info [(addresses)]="addresses"></app-table-address-info>
 	</div>
-
-</div> 
+</div>
